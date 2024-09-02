@@ -20,12 +20,12 @@ void _print_hex_buffer(uint8_t const *buf, size_t len)
 		printf("%02x", buf[i]);
 }
 
-uint8_t *sha256(int8_t const *s, size_t len,
-uint8_t digest[SHA256_DIGEST_LENGTH])
+uint8_t *sha256(int8_t const *s, size_t len, uint8_t digest[SHA256_DIGEST_LENGTH])
 {
-	if (!s || !digest)
-		return (NULL);
-	return (SHA256((const unsigned char *)s, len, digest));
+
+    if (!s || !digest)
+        return (NULL);
+    return (SHA256((const unsigned char *)s, len, digest));
 }
 
 /**
@@ -38,29 +38,31 @@ uint8_t digest[SHA256_DIGEST_LENGTH])
  */
 int main(int ac, char **av)
 {
-	uint8_t hash[SHA256_DIGEST_LENGTH];
-	uint8_t *test_ptr;
+    uint8_t hash[SHA256_DIGEST_LENGTH];
+    uint8_t *test_ptr;
 
-	if (ac < 2)
-	{
-		fprintf(stderr, "Usage: %s arg\n", av[0]);
-		return (FAILURE);
-	}
-	/* Test `sha256()` */
-	test_ptr = sha256((int8_t *)av[1], strlen(av[1]), hash);
-	if (!test_ptr)
-	{
-		fprintf(stderr, "sha256() failed\n");
-		return (EXIT_FAILURE);
-	}
-	if (test_ptr != hash)
-	{
-		fprintf(stderr, "Return value and pointer differ\n");
-		return (EXIT_FAILURE);
-	}
-	printf("\"%s\" hash is: ", av[1]);
-	_print_hex_buffer(hash, SHA256_DIGEST_LENGTH);
-	printf("\n");
+    if (ac < 2)
+    {
+        fprintf(stderr, "Usage: %s arg\n", av[0]);
+        return (EXIT_FAILURE);
+    }
 
-	return (EXIT_SUCCESS);
+    /* Test `sha256()` */
+    test_ptr = sha256((int8_t *)av[1], strlen(av[1]), hash);
+    if (!test_ptr)
+    {
+        fprintf(stderr, "sha256() failed\n");
+        return (EXIT_FAILURE);
+    }
+    if (test_ptr != hash)
+    {
+        fprintf(stderr, "Return value and pointer differ\n");
+        return (EXIT_FAILURE);
+    }
+
+    printf("\"%s\" hash is: ", av[1]);
+    _print_hex_buffer(hash, SHA256_DIGEST_LENGTH);
+    printf("\n");
+
+    return (EXIT_SUCCESS);
 }
