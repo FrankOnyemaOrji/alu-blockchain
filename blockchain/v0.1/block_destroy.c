@@ -1,4 +1,4 @@
-#include "blockchain"
+#include "blockchain.h"
 
 /**
  * block_destroy - deletes an exisiting block
