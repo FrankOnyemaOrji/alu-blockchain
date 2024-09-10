@@ -1,4 +1,4 @@
-#include "blockchain.c"
+#include "blockchain.h"
 
 /**
 * blockchain_destroy - deletes an existing Blockchain
