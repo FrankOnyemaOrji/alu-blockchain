@@ -1,10 +1,10 @@
 #include "transaction.h"
 
 /**
- * match_unspent - finds unspent to match txi.
- * @node: utxo.
- * @arg: txi struct.
- * Return: 0 if continue else 1.
+ * match_unspent - finds unspent to match txi
+ * @node: utxo
+ * @arg: txi struct
+ * Return: 0 if continue else 1
  * Author: Frank Onyema Orji.
  */
 int match_unspent(llist_node_t node, void *arg)
@@ -100,4 +100,3 @@ int transaction_is_valid(transaction_t const *transaction,
 	}
 	return (1);
 }
-
