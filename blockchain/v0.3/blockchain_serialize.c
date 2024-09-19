@@ -1,9 +1,9 @@
 #include "blockchain.h"
 
 /**
- * blockchain_serialize - serializes blockchain to file.
- * @blockchain: pointer to blockchain to serialize.
- * @path: path to save file.
+ * blockchain_serialize - serializes blockchain to file
+ * @blockchain: pointer to blockchain to serialize
+ * @path: path to save file
  * Return: 0 on success else -1 on failure.
  * Author: Frank Onyema Orji.
  */
