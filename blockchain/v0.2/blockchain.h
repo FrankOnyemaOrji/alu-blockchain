@@ -1,4 +1,4 @@
-i#ifndef BLOCKCHAIN_H
+#ifndef BLOCKCHAIN_H
 #define BLOCKCHAIN_H
 
 #include <llist.h>
